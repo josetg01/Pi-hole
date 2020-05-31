@@ -1,5 +1,7 @@
 #!/bin/bash
-sudo apt update && sudo apt upgrade -y
-sudo apt --fix-broken install
-sudo wget https://github.com/josetg01/Pi-hole/raw/master/MinerGate-xFast-cli-1.7-ubuntu.deb
-sudo dpkg -i MinerGate-xFast-cli-1.7-ubuntu.deb
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io -y
