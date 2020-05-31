@@ -1,9 +1,7 @@
 #!/bin/bash
-sudo apt-get update && sudo apt-get upgrade -y
-sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io -y
-sudo docker pull alimuratgymn/minergate-xfast-cli
-sudo docker run --name xmr-xfast-container -d alimuratgymn/minergate-xfast-cli:cpu --user jose_torregrosa01@hotmail.com --xmr
+sudo apt-get install git build-essential cmake libuv1-dev libssl-dev libhwloc-dev -y
+git clone https://github.com/xmrig/xmrig.git
+cd xmrig && mkdir build && cd build
+cmake ..
+make
+./xmrig -o pool.supportxmr.com:443 -u 43c2ykU9i2KZHjV8dWff9HKurYYRkckLueYK96Qh4p1EDoEvdo8mpgNJJpPuods53PM6wNzmj4K2D1V11wvXsy9LMiaYc86 -k --tls
