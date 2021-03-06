@@ -1,0 +1,2 @@
+www.googleadservices.com
+*.googlevideo.com
